@@ -4,11 +4,19 @@
 [hub]
         protocol = https
 [alias]
+        st = status
+        d = diff
+        ci = commit -v
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+        cp = cherry-pick
+        l = log --pretty=oneline --abbrev-commit --graph --date=relative 
+        b = branch 
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
+        lg2 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative 
+        amend = commit --amend -C HEAD 
+        lgg = !"git lg @{u}~2.."
+        rebase = rebase --autosquash
+        d = diff
 [color]
         diff = auto
         status = auto
@@ -16,13 +24,15 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+        editor = e
 [apply]
         whitespace = nowarn
 [mergetool]
         keepBackup = false
 [difftool]
         prompt = false
+[format]
+        numbered = auto
 [help]
         autocorrect = 1
 [push]

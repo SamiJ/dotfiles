@@ -27,6 +27,41 @@ fail () {
   exit
 }
 
+setup_st3() {
+  ST3_HOME=$HOME/Library/Application\ Support/Sublime\ Text\ 3
+  if [ ! -d "$ST3_HOME" ]; then
+    info "Bootstrapping ST3 Package Control"
+    mkdir -p "$ST3_HOME/Installed Packages"
+    mkdir -p "$ST3_HOME/Packages"
+    curl -s https://sublime.wbond.net/Package%20Control.sublime-package > "$ST3_HOME/Installed Packages/Package Control.sublime-package"
+    success "Package Control installed."
+  fi
+
+  if [ ! -L "$ST3_HOME/Packages/User" ]; then
+    if [ -d "$ST3_HOME/Packages/User" ]; then
+      success "Backing up old ST3 Packages/User directory."
+      mv "$ST3_HOME/Packages/User" "$ST3_HOME/Packages/User.backup"
+    fi
+    ln -s "$DOTFILES_ROOT/sublime3" "$ST3_HOME/Packages/User"
+    success "Set up ST3 Packages/User symlink."
+  fi
+}
+
+setup_iterm2() {
+  if [ $TERM_PROGRAM == "iTerm.app" ]; then
+    info "Can't reconfigure iTerm when bootstrap is run from it. Run me from Terminal.app."
+    echo
+  else
+    info "Setting up iTerm2"
+    killall iTerm 2>/dev/null || true
+    cp $DOTFILES_ROOT/iterm2/com.googlecode.iterm2.plist $HOME/Library/Preferences
+    killall cfprefsd
+    mkdir -p $HOME/Library/Fonts
+    cp $DOTFILES_ROOT/fonts/* $HOME/Library/Fonts
+    success "iTerm2 preferences updated."
+  fi
+}
+
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
   then
@@ -139,6 +174,8 @@ install_dotfiles () {
 
 setup_gitconfig
 install_dotfiles
+setup_st3
+setup_iterm2
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]

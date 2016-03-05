@@ -1,0 +1,20 @@
+if [ -f $HOME/.defaultjdk ]; then
+  export JAVA_HOME=`cat $HOME/.defaultjdk`
+fi
+
+function switchjava() {
+  if [ -z "$1" ]; then
+    echo $JAVA_HOME
+  else
+    export JAVA_HOME=`/usr/libexec/java_home -v $1`
+  fi
+}
+
+function defaultjava() {
+  if [ -z "$1" ]; then
+    cat $HOME/.defaultjdk
+  else
+    switchjava $1
+    echo $JAVA_HOME > $HOME/.defaultjdk
+  fi
+}

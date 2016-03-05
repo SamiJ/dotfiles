@@ -1,0 +1,75 @@
+{
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		},
+		{
+			"characters": ".",
+			"selector": "source.js"
+		}
+	],
+	"color_scheme": "Packages/User/Flatland Dark (SL).tmTheme",
+	"file_exclude_patterns":
+	[
+		".tags",
+		".tags_sorted_by_file",
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS"
+	],
+	"font_face": "Hack",
+	"font_size": 19,
+	"ignored_packages":
+	[
+		"JavaScript",
+		"Puppet",
+		"Theme - Soda",
+		"Varnish VCL",
+		"Vintage"
+	],
+	"jshint_options":
+	{
+		"esnext": true,
+		"predef":
+		[
+			"require",
+			"module",
+			"exports",
+			"console"
+		]
+	},
+	"rulers":
+	[
+		120
+	],
+	"sublimelinter": true,
+	"tab_size": 2,
+	"theme": "Flatland Dark.sublime-theme",
+	"translate_tabs_to_spaces": true
+}

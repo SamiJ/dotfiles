@@ -1,0 +1,5 @@
+[user]
+        name = Sami Jaatinen
+        email = sami.jaatinen@iki.fi
+[credential]
+        helper = osxkeychain

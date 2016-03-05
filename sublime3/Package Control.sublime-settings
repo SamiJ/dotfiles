@@ -1,0 +1,38 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Ansible",
+		"Babel",
+		"CMake",
+		"CTags",
+		"DashDoc",
+		"EditorConfig",
+		"Emacs-like Modelines",
+		"Git",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"Java Velocity",
+		"JsFormat",
+		"LESS",
+		"Markdown Preview",
+		"nginx",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"SublimeFixMacPath",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-jscs",
+		"SublimeLinter-jshint",
+		"SublimeLinter-pylint",
+		"Theme - Flatland"
+	],
+	"repositories":
+	[
+		"https://github.com/int3h/SublimeFixMacPath"
+	]
+}
